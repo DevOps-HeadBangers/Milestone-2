@@ -77,17 +77,27 @@ Go to the job page and click Build Now in the left pane. If, you get a blue sphe
 
 2. Under Build section, choose 'Execute Shell' option for Add Build Step option.
 
-3. Add the following code to the Execute Shell Command:
+3. Add the following code to the 'Execute Shell Command'. This script will do a clean npm install, run unit tests,     measure coverage and report the results. 
 ```
 rm -rf node_modules
 npm install
 npm run ci-test || :
 ```
-   This script will do a clean npm install, run unit tests, measure coverage and report the results. 
 
-4. Under Post Build Sections, choose Publish TAP Results for Add Post Build Action option. And, for Test Results        textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
+4. Under 'Post Build Sections', choose 'Publish TAP Results' for 'Add Post Build Action' option. And, for 'Test        Results' textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
 
-5. Again, under Post Build Sections, choose Publish Clover Coverage Report for Add Post Build Action option. And, for    Clover report directory textbox, write 'coverage'. 'coverage' is the folder that will contain the istanbul           coverage reports.
+5. Again, under 'Post Build Sections', choose 'Publish Clover Coverage Report' for 'Add Post Build Action' option.     And, for 'Clover Report Directory' textbox, write 'coverage'. 'coverage' is the folder that will contain the        istanbul coverage reports. Click 'Apply' and 'Save' when done.
 
 Following is the screencast for the capability:
 
+##### The ability to improve testing coverage using one of the techniques covered in class: constraint-based test generation, fuzzing, etc. You can use an existing tool or implement your own approach.
+
+To the 'Execute Shell Command' of the previous capability, add ```node testgen.js```. Adding this command will generate new test cases and improve the test coverage. The tests are generated using constraint based test        generation. Click 'Apply' and 'Save' when done.
+
+Following is the screencast for the capability:
+
+##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
+
+For this capability, under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
+
+Following is the screencast for the capability:

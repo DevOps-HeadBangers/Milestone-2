@@ -77,13 +77,13 @@ Go to the job page and click Build Now in the left pane. If, you get a blue sphe
 
 2. Under Build section, choose 'Execute Shell' option for Add Build Step option.
 
-3. Add the following code to the 'Execute Shell Command'. This script will do a clean npm install, run unit tests,     measure coverage and report the results. 
-```
-rm -rf node_modules
-npm install
-npm run ci-test || :
-```
-
+3. Add the following code to the 'Execute Shell Command'. This script will do a clean npm install, run unit tests,     measure coverage and report the results.  
+    ```
+    rm -rf node_modules
+    npm install
+    npm run ci-test || :
+    ```
+    
 4. Under 'Post Build Sections', choose 'Publish TAP Results' for 'Add Post Build Action' option. And, for 'Test        Results' textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
 
 5. Again, under 'Post Build Sections', choose 'Publish Clover Coverage Report' for 'Add Post Build Action' option.     And, for 'Clover Report Directory' textbox, write 'coverage'. 'coverage' is the folder that will contain the        istanbul coverage reports. Click 'Apply' and 'Save' when done.
@@ -101,3 +101,13 @@ Following is the screencast for the capability:
 For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run ci-lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
 
 Following is the screencast for the capability:
+
+##### The ability to extend an existing analysis tool with a custom analysis, or implement a new analysis from scratch. For example, you could write a static analysis that checks for the ratio of comments to code, or finds parse errors in SQL string statements. You could introduce security checks, a dynamic analysis, a data-flow analysis or a data-flow based test coverage.
+
+For this capability, add ```node analysis.js``` to the 'Execute Shell Command' of the previous capability. Click 'Apply' and 'Save' when done. This will output the comment to code line ratio on the console output. 
+
+Following is the screencast for the capability:
+
+##### Using hooks or post-build scripts, have the ability to reject a commit if it fails a minimum testing criteria (e.g. failed test case, or less than 50% statement coverage) and analysis criteria (e.g. cannot commits that generate a particular FindBugs rule, such as "Method concatenates strings using + in a loop").
+
+

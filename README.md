@@ -66,7 +66,7 @@ Istanbul
 4. Under Build Environment, check the 'Provide Node & npm bin/ folder to PATH' option and choose the NodeJS            installation from the previous step.
 
 
-#### Test Section
+### Test Section
 
 ##### The ability to run unit tests, measure coverage, and report the results
 
@@ -93,7 +93,7 @@ To the 'Execute Shell Command' of the previous capability, add ```node testgen.j
 
 Following is the screencast for the capability:
 
-#### Analysis Section
+### Analysis Section
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 

@@ -83,4 +83,11 @@ rm -rf node_modules
 npm install
 npm run ci-test || :
 ```
-This script will do a clean npm install, run unit tests, measure coverage and report the results.
+   This script will do a clean npm install, run unit tests, measure coverage and report the results. 
+
+4. Under Post Build Sections, choose Publish TAP Results for Add Post Build Action option. And, for Test Results        textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
+
+5. Again, under Post Build Sections, choose Publish Clover Coverage Report for Add Post Build Action option. And, for    Clover report directory textbox, write 'coverage'. 'coverage' is the folder that will contain the istanbul           coverage reports.
+
+Following is the screencast for the capability:
+

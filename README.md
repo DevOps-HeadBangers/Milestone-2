@@ -98,6 +98,6 @@ Following is the screencast for the capability:
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 
-For this capability, under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
+For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run ci-lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
 
 Following is the screencast for the capability:

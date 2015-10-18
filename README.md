@@ -31,7 +31,7 @@ ESLint
 
 Istanbul
 
-### Build Section
+### Basic Setup
 
 #### Install Jenkins 
 
@@ -65,11 +65,8 @@ Istanbul
 
 4. Under Build Environment, check the 'Provide Node & npm bin/ folder to PATH' option and choose the NodeJS            installation from the previous step.
 
-#### Test Build
 
-Go to the job page and click Build Now in the left pane. If, you get a blue sphere then that means the build was successful else you will get a red sphere.
-
-#### Capabilities
+#### Test Section
 
 ##### The ability to run unit tests, measure coverage, and report the results
 
@@ -95,6 +92,8 @@ Following is the screencast for the capability:
 To the 'Execute Shell Command' of the previous capability, add ```node testgen.js```. Adding this command will generate new test cases and improve the test coverage. The tests are generated using constraint based test        generation. Click 'Apply' and 'Save' when done.
 
 Following is the screencast for the capability:
+
+#### Analysis Section
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 

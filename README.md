@@ -78,7 +78,7 @@ Istanbul
     ```
     rm -rf node_modules
     npm install
-    npm run ci-test || :
+    istanbul cover test.js > test.tap && istanbul report clover
     ```
     
 4. Under 'Post Build Sections', choose 'Publish TAP Results' for 'Add Post Build Action' option. And, for 'Test        Results' textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
@@ -97,7 +97,7 @@ Following is the screencast for the capability:
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 
-For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run ci-lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
+For this capability, to the 'Execute Shell Command' of the previous capability, add ```eslint -f checkstyle index.js > checkstyle-result.xml```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
 
 Following is the screencast for the capability:
 

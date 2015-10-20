@@ -83,7 +83,7 @@ Istanbul
     
 4. Under 'Post Build Sections', choose 'Publish TAP Results' for 'Add Post Build Action' option. And, for 'Test        Results' textbox, write 'test.tap'. 'test.tap' file will contain the result of ```istanbul cover test.js```.
 
-5. Again, under 'Post Build Sections', choose 'Publish Clover Coverage Report' for 'Add Post Build Action' option.     And, for 'Clover Report Directory' textbox, write 'coverage'. 'coverage' is the folder that will contain the        istanbul coverage reports. Click 'Apply' and 'Save' when done.
+5. Again, under 'Post Build Sections', choose 'Publish Clover Coverage Report' for 'Add Post Build Action' option.     And, for 'Clover Report Directory' textbox, write 'coverage'. 'coverage' is the folder that will contain the        istanbul coverage reports. Click 'Apply' and 'Save' when done. Run the build.
 
 Following is the screencast for the capability:
 
@@ -91,7 +91,7 @@ Following is the screencast for the capability:
 
 ##### The ability to improve testing coverage using one of the techniques covered in class: constraint-based test generation, fuzzing, etc. You can use an existing tool or implement your own approach.
 
-To the 'Execute Shell Command' of the previous capability, add ```node testgen.js```. Adding this command will generate new test cases and improve the test coverage. The tests are generated using constraint based test        generation. Click 'Apply' and 'Save' when done.
+To the 'Execute Shell Command' of the previous capability, add ```node testgen.js```. Adding this command will generate new test cases and improve the test coverage. The tests are generated using constraint based test        generation. Click 'Apply' and 'Save' when done. Run the build.
 
 Following is the screencast for the capability:
 
@@ -101,7 +101,7 @@ Following is the screencast for the capability:
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 
-For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done.
+For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done. Run the build.
 
 Following is the screencast for the capability:
 
@@ -109,7 +109,7 @@ Following is the screencast for the capability:
 
 ##### The ability to extend an existing analysis tool with a custom analysis, or implement a new analysis from scratch. For example, you could write a static analysis that checks for the ratio of comments to code, or finds parse errors in SQL string statements. You could introduce security checks, a dynamic analysis, a data-flow analysis or a data-flow based test coverage.
 
-For this capability, add ```node analysis.js``` to the 'Execute Shell Command' of the previous capability. Click 'Apply' and 'Save' when done. This will output the comment to code line ratio on the console output. 
+For this capability, add ```node analysis.js``` to the 'Execute Shell Command' of the previous capability. Click 'Apply' and 'Save' when done. Run the build. This will output the comment to code line ratio on the console output. 
 
 Following is the screencast for the capability:
 
@@ -117,4 +117,20 @@ Following is the screencast for the capability:
 
 ##### Using hooks or post-build scripts, have the ability to reject a commit if it fails a minimum testing criteria (e.g. failed test case, or less than 50% statement coverage) and analysis criteria (e.g. cannot commits that generate a particular FindBugs rule, such as "Method concatenates strings using + in a loop").
 
+###### Part 1
 
+Go to 'Publish TAP Results' under 'Post Build Actions'. Click on 'Advanced' button and check the option 'Failed tests mark build as failure'. 
+
+We have manually written a failing test to check if the failed test fails the build or not. So, remove ```node testgen.js``` from Execute Shell Command for this build so that the failing test in ```test.js``` is not over written.
+
+Click 'Apply' and 'Save' when done. Run the build.
+
+Following is the screencast for the capability:
+
+![Capability 5_1](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_1.gif) 
+
+###### Part 2
+
+Go to 'Publish Checkstyle analysis results' under 'Post Build Actions'. Click on 'Advanced' button and under the 'Status Thresholds' enter 2 for 'All Priorities' column so that the build will fail since we have 3 warnings given by checkstyle. 
+
+![Capability 5_2](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_2.gif) 

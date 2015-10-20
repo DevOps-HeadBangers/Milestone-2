@@ -140,3 +140,11 @@ Following is the screencast for the capability:
 ![Capability 5_2](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_2.gif) 
 
 ##### The ability to parse a code files and json files in order to detect the presence of AWS/digital ocean security tokens. The ability to check commited files that are private ssh keys. Using hooks, reject the commit if any violation occurs.
+
+###### Part 1 : Testing for presence of keys in one of the files.
+
+We are testing for AWS and Digital Ocean keys. Through, our observation of various keys we are assuming that Digital Ocean keys are alphanumeric and of 64 lenght. And, AWS keys are also alphanumeric starting with "AKI" and its length varies between 20 and 21. If any such key is found in the commit, the commit is rejected and an appropriate message is prompted on the terminal.
+
+###### Part 2 : Testing for PEM file which has private SSH key.
+
+We are assuming that files containing private SSH key have .pem extension. So, we are looking up in the directory for .pem files and rejecting the commit if found any.

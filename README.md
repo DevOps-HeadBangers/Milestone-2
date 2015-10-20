@@ -117,7 +117,7 @@ Following is the screencast for the capability:
 
 ##### Using hooks or post-build scripts, have the ability to reject a commit if it fails a minimum testing criteria (e.g. failed test case, or less than 50% statement coverage) and analysis criteria (e.g. cannot commits that generate a particular FindBugs rule, such as "Method concatenates strings using + in a loop").
 
-###### Part 1
+###### Part 1 : Failing minimum testing criteria
 
 Go to 'Publish TAP Results' under 'Post Build Actions'. Click on 'Advanced' button and check the option 'Failed tests mark build as failure'. 
 
@@ -129,7 +129,7 @@ Following is the screencast for the capability:
 
 ![Capability 5_1](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_1.gif) 
 
-###### Part 2
+###### Part 2 : Failing minimum analysis criteria
 
 Go to 'Publish Checkstyle analysis results' under 'Post Build Actions'. Click on 'Advanced' button and under the 'Status Thresholds' enter 2 for 'All Priorities' column so that it fails the minimum analysis criteria since we have 3 warnings given by checkstyle. Hence, the build will fail.  
 
@@ -138,3 +138,13 @@ Click 'Apply' and 'Save' when done. Run the build.
 Following is the screencast for the capability:
 
 ![Capability 5_2](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_2.gif) 
+
+##### The ability to parse a code files and json files in order to detect the presence of AWS/digital ocean security tokens. The ability to check commited files that are private ssh keys. Using hooks, reject the commit if any violation occurs.
+
+###### Part 1 : Testing for presence of keys in one of the files.
+
+We are testing for AWS and Digital Ocean keys. Through, our observation of various keys we are assuming that Digital Ocean keys are alphanumeric and of 64 lenght. And, AWS keys are also alphanumeric starting with "AKI" and its length varies between 20 and 21. If any such key is found in the commit, the commit is rejected and an appropriate message is prompted on the terminal.
+
+###### Part 2 : Testing for PEM file which has private SSH key.
+
+We are assuming that files containing private SSH key have .pem extension. So, we are looking up in the directory for .pem files and rejecting the commit if found any.

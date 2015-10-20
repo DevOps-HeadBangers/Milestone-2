@@ -131,6 +131,10 @@ Following is the screencast for the capability:
 
 ###### Part 2
 
-Go to 'Publish Checkstyle analysis results' under 'Post Build Actions'. Click on 'Advanced' button and under the 'Status Thresholds' enter 2 for 'All Priorities' column so that the build will fail since we have 3 warnings given by checkstyle. 
+Go to 'Publish Checkstyle analysis results' under 'Post Build Actions'. Click on 'Advanced' button and under the 'Status Thresholds' enter 2 for 'All Priorities' column so that it fails the minimum analysis criteria since we have 3 warnings given by checkstyle. Hence, the build will fail.  
+
+Click 'Apply' and 'Save' when done. Run the build.
+
+Following is the screencast for the capability:
 
 ![Capability 5_2](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap5_2.gif) 

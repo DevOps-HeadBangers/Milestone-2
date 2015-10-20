@@ -143,8 +143,20 @@ Following is the screencast for the capability:
 
 ###### Part 1 : Testing for presence of keys in one of the files.
 
-We are testing for AWS and Digital Ocean keys. Through, our observation of various keys we are assuming that Digital Ocean keys are alphanumeric and of 64 lenght. And, AWS keys are also alphanumeric starting with "AKI" and its length varies between 20 and 21. If any such key is found in the commit, the commit is rejected and an appropriate message is prompted on the terminal.
+We are testing for AWS and Digital Ocean keys. Through, our observation of various keys we are assuming that Digital Ocean keys are alphanumeric and of 64 length. And, AWS keys are also alphanumeric starting with "AKI" and its length varies between 20 and 21. We are also assuming that the key will always be in quotes. 
+
+When the commit is made, the hook will run the ```checkForKey.js``` node script, which will parse all the files and look for the keys.
+
+If any such key is found in the commit, the commit is rejected and an appropriate message is prompted on the terminal.
+
+![Capability 6_1](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap6_1.gif) 
 
 ###### Part 2 : Testing for PEM file which has private SSH key.
 
-We are assuming that files containing private SSH key have .pem extension. So, we are looking up in the directory for .pem files and rejecting the commit if found any.
+We are assuming that files containing private SSH key have .pem extension.
+
+When the commit is made, the hook will run the ```checkForKey.js``` node script, which will look for .pem files.
+
+If any such file is found, the commit is rejected and an appropriate message is prompted on the terminal.
+
+![Capability 6_2](https://github.com/DevOps-HeadBangers/Milestone2/blob/master/GIFs/Cap6_2.gif) 

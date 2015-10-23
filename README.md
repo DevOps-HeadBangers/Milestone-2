@@ -101,7 +101,7 @@ Following is the screencast for the capability:
 
 ##### The ability to run an existing static analysis tool on the source code (e.g. FindBugs, PMD, CheckStyle, NCover, Lint, etc.), process its results, and report its findings.
 
-For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done. Run the build. During the build, eslint will check the ```index.js``` file for style errors and report the errors as warnings in checkstyle-result.xml. This xml file will be used to generate the final result on Jenkins.
+For this capability, to the 'Execute Shell Command' of the previous capability, add ```npm run lint || :```.  Under 'Post Build Sections', choose 'Publish CheckStyle Analysis Results' for 'Add Post Build Action' option. Click 'Apply' and 'Save' when done. Run the build. During the build, eslint will check the ```server.js``` file for style errors and report the errors as warnings in checkstyle-result.xml. This xml file will be used to generate the final result on Jenkins.
 
 Following is the screencast for the capability:
 
@@ -109,7 +109,7 @@ Following is the screencast for the capability:
 
 ##### The ability to extend an existing analysis tool with a custom analysis, or implement a new analysis from scratch. For example, you could write a static analysis that checks for the ratio of comments to code, or finds parse errors in SQL string statements. You could introduce security checks, a dynamic analysis, a data-flow analysis or a data-flow based test coverage.
 
-For this capability, add ```node analysis.js``` to the 'Execute Shell Command' of the previous capability. Click 'Apply' and 'Save' when done. Run the build. During the build, the 'analysis' build will run and output the comment to code line ratio of ```index.js``` on the console output. 
+For this capability, add ```node analysis.js``` to the 'Execute Shell Command' of the previous capability. Click 'Apply' and 'Save' when done. Run the build. During the build, the 'analysis' build will run and output the comment to code line ratio of all the js files in the project on the console output. 
 
 Following is the screencast for the capability:
 

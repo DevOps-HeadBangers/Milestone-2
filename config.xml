@@ -8,7 +8,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/DevOps-HeadBangers/target-project-node.git</url>
+        <url>https://github.com/DevOps-HeadBangers/File-upload-in-Node.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -31,16 +31,30 @@
       <command>rm -rf node_modules
 npm install
 node testgen.js
-npm run test
+npm run test || :
 npm run lint || :
 node analysis.js</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>node extendTest.js
+if [ $? -eq &quot;1&quot; ];
+then
+  exit 1
+fi</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>node extendAnalysis.js
+if [ $? -eq &quot;1&quot; ];
+then
+  exit 1
+fi</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <org.tap4j.plugin.TapPublisher plugin="tap@1.24">
       <testResults>test.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
-      <failedTestsMarkBuildAsFailure>true</failedTestsMarkBuildAsFailure>
+      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
       <outputTapToConsole>false</outputTapToConsole>
       <enableSubtests>false</enableSubtests>
       <discardOldReports>false</discardOldReports>
@@ -69,7 +83,7 @@ node analysis.js</command>
         <unstableNewHigh></unstableNewHigh>
         <unstableNewNormal></unstableNewNormal>
         <unstableNewLow></unstableNewLow>
-        <failedTotalAll>2</failedTotalAll>
+        <failedTotalAll></failedTotalAll>
         <failedTotalHigh></failedTotalHigh>
         <failedTotalNormal></failedTotalNormal>
         <failedTotalLow></failedTotalLow>
